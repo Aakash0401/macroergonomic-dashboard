@@ -16,7 +16,6 @@ Traditional dashboards focus primarily on technical vulnerabilities. This projec
 
 The goal is to provide a **holistic view of breach risk**, enabling better-informed security decisions.
 
-> The dashboard incorporates survey-based data and technical indicators to model real-world breach susceptibility. :contentReference[oaicite:1]{index=1}
 
 ---
 
