@@ -1,146 +1,104 @@
-# DECO3801: Digital Defenders
+# Macroergonomic Dashboard for Data Breach Analysis
 
-## Installation
-
-### For Linux:
-
-1. **Install Docker and Docker Compose**  
-   For Debian-based distributions:
-   
-   ```bash
-   sudo apt install docker.io docker-compose
-   ```
-
-2. **Start the Docker service**  
-   Use one of the following commands:
-   
-   ```bash
-   sudo systemctl start docker
-   ```
-   or
-   
-   ```bash
-   sudo service docker start
-   ```
-
-3. **Unzip the project**  
-   Extract the contents of the project ZIP file to a desired directory on your machine.
-
-4. **Create a Python virtual environment**:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
-
-5. **Install backend dependencies**:
-   ```bash
-   pip install -r backend/requirements.txt
-   ```
+A web-based dashboard designed to analyse socio-technical factors contributing to data breaches by integrating human, organisational, and technical risk indicators.
 
 ---
 
-### For macOS:
+## Project Overview
 
-1. **Install Docker and Docker Compose**  
-   Download and install [Docker Desktop for macOS](https://www.docker.com/products/docker-desktop).
+This project was developed as part of a university capstone to address the growing need for **enhanced cybersecurity awareness across organisations**.
 
-2. **Start Docker Desktop**  
-   Docker Desktop should start automatically once installed. Ensure it is running by checking the menu bar.
+Traditional dashboards focus primarily on technical vulnerabilities. This project takes a **macroergonomic approach**, analysing:
 
-3. **Unzip the project**  
-   Extract the contents of the project ZIP file to a desired directory.
+- Human behaviour (e.g., password practices, social engineering susceptibility)
+- Organisational factors (e.g., policies, awareness)
+- Technical risks (e.g., vulnerabilities, network exposure)
 
-4. **Create a Python virtual environment**:
-   ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate
-   ```
+The goal is to provide a **holistic view of breach risk**, enabling better-informed security decisions.
 
-5. **Install backend dependencies**:
-   ```bash
-   pip install -r backend/requirements.txt
-   ```
-
-### For Windows:
-
-1. **Install Docker Desktop** from [here](https://www.docker.com/products/docker-desktop).
-
-2. **Install Git Bash or any Bash-compatible terminal** if needed to run Bash commands (available [here](https://gitforwindows.org/)).
-
-3. **Unzip the project**:  
-   Extract the contents of the project ZIP file to a directory on your machine.
-
-4. **Set up Python virtual environment**:
-   ```bash
-   python -m venv .venv
-   .venv\Scripts\activate
-   ```
-
-5. **Install backend dependencies**:
-   ```bash
-   pip install -r backend/requirements.txt
-   ```
+> The dashboard incorporates survey-based data and technical indicators to model real-world breach susceptibility. :contentReference[oaicite:1]{index=1}
 
 ---
 
-### Starting the Project (will also build if there are no existing builds)
+## Dashboard Preview
 
-```bash
-sudo docker-compose up -d
-```
+### Main Dashboard
+![Main Dashboard](images/<your-main-image>.png)
 
-### Building/Rebuilding the Project
+### Social Risk Analysis
+![Social Risks](images/<your-social-image>.png)
 
-```bash
-sudo docker-compose build
-```
-
-### Running and Rebuilding
-
-```bash
-sudo docker-compose up --build -d
-```
-
-### Viewing Logs (and errors)
-
-```bash
-sudo docker-compose logs
-```
-
-### Stopping the Containers
-
-```bash
-sudo docker-compose down
-```
-
-### Removing Stored Data (only if the containers are stopped)
-
-```bash
-sudo docker volume rm digital-defenders_db-data
-```
-
-### Accessing the Dashboard
-
-Once started, open [http://localhost:8000](http://localhost:8000) in a browser to view the dashboard. You may need to run `sudo docker-compose up -d` multiple times during the first setup.
+### Technical Risk Analysis
+![Technical Risks](images/<your-technical-image>.png)
 
 ---
 
-### Remove All Docker Images and Containers
+## Key Features
 
-```bash
-sudo docker rm -vf $(sudo docker ps -aq)
-sudo docker rmi -f $(sudo docker images -aq)
-sudo docker volume prune -f
-```
+- **Multi-Domain Risk Modelling**
+  - Combines human, organisational, and technical risk factors into a unified analysis
+
+- **Interactive Visualisations**
+  - Displays risk relationships through charts and dashboards for intuitive exploration
+
+- **Survey-Based Risk Assessment**
+  - Uses behavioural questionnaires (Knowledge-Attitude-Behaviour model) to evaluate human risk factors :contentReference[oaicite:2]{index=2}
+
+- **Technical Risk Integration**
+  - Incorporates network scanning and vulnerability insights to complement social risk analysis
+
+- **User-Centric Design**
+  - Designed using usability heuristics to ensure clarity and ease of navigation :contentReference[oaicite:3]{index=3}
 
 ---
 
-## Social Data Collection
+## Tech Stack
 
-Employers are expected to distribute a 63-question survey periodically (quarterly or bi-annually) to employees and upload the results to the dashboard's Social Risks page for data processing. A blank copy of the survey question/response spreadsheet can be found at `data/survey_blank.csv`. An example response file is available at `data/AI_survey_responses_80_employees.csv`. All uploaded CSV files must match this format.
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** Flask (Python)  
+- **Database:** MySQL  
+- **Data Processing:** Python  
+- **Infrastructure:** Docker, Nginx  
+- **Security Tooling:** Nmap (network scanning)
 
 ---
 
-## Active Users
+## Evaluation & Results
 
-The active users panel requires each user displayed to run the `monitoring.py` script, located in the `monitoring/` directory. Additional details are provided in the README file within this directory.
+The dashboard was evaluated through structured user testing:
+
+- Average user confidence score: **4.6 / 5**
+- Users found the interface **intuitive and easy to navigate**
+- Improvements were made based on feedback (e.g., clearer labels, improved navigation)
+
+> Users were able to complete multiple analysis tasks efficiently, validating the usability of the system :contentReference[oaicite:4]{index=4}
+
+---
+
+## Key Learnings
+
+- Security is not purely technical — **human behaviour is a critical attack surface**
+- Visualisation plays a major role in **security decision-making**
+- Balancing usability and analytical depth is challenging but essential
+- Integrating multiple data sources requires careful structuring and abstraction
+
+---
+
+## Future Improvements
+
+- Integrate **third-party vulnerability feeds** for richer technical insights
+- Expand dataset for more accurate risk modelling
+- Add **real-time monitoring and alerting**
+- Introduce **predictive analytics / ML-based risk scoring**
+- Improve scalability for enterprise-level deployment
+
+---
+
+## Challenges
+
+- Limited data availability restricted full risk modelling capabilities
+- Time constraints impacted implementation of advanced features
+- Balancing simplicity with depth in dashboard design
+- Quantifying social risk as business risk 
+
+
