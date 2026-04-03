@@ -1,0 +1,33 @@
+name: Python Tests with Docker
+
+on:
+  push:
+    branches:
+      - main
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Updated version
+
+    - name: Set up Docker Build
+      run: |
+        docker build -t my-app-backend ./backend  # Build Docker image from Dockerfile in 'backend' directory
+
+    - name: Run Container
+      run: |
+        docker run my-app-backend pytest --maxfail=5 --disable-warnings | tee pytest-failed.log  # Ensure log is captured
+
+    - name: Upload test results
+      if: failure()
+      uses: actions/upload-artifact@v4  # Updated version
+      with:
+        name: pytest-failed-logs
+        path: pytest-failed.log

@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Multiguard
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Moksh
+    family-names: Mehta
+  - given-names: Christian
+    family-names: Sullivan
+  - given-names: Wei-Hsiu
+    family-names: Sung
+  - given-names: Aakash
+    family-names: Ashok
+  - given-names: Liam
+    family-names: Garty
+  - given-names: Luke
+    family-names: Ahearn
+repository-code: 'https://github.com/Moksh-Mehta7/Digital-Defenders/'
+abstract: >-
+  A dashboard for macroergonomic analysis of pre-conditions
+  for data breaches.

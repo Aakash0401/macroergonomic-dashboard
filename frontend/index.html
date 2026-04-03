@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MultiGuard | Dashboard</title>
+        <link rel="stylesheet" href="style.css"/>
+        <!--Import K2D Font-->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+        </style>
+        <!--Chart.js Library-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body class="k2d-regular">
+        <!-- Navigation-->
+        <div style="background: #1A3042">
+            <div class="nav-bar">
+                <div id="logo">MULTIGUARD</div>
+                <div class="menu-buttons">
+                    <div class="menu-element highlight">
+                        <img src="img/bar_graph.png" alt="dashboard icon">
+                        <a href="index.html">Dashboard</a>
+                    </div>
+                    <div class="menu-element">
+                        <img src="img/alert_hex.png" alt="alerts icon">
+                        <a href="technical-risks.html">Technical Risks</a>
+                    </div>
+                    <div class="menu-element">
+                        <img src="img/clipboard.png" alt="social icon">
+                        <a href="social-risks.html">Social Risks</a>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+        <!--Dashboard Header-->
+        <div id="stats-overview">
+            <div class="stat-box">
+                <div class="title-text">In the last hour...</div>
+                <div>X users were active</div>
+                <div>X open ports were detected</div>
+            </div>
+            <div class="stat-box">
+                <div class="title-text">X</div>
+                <div>Online Users</div>
+            </div>
+            <div class="stat-box">
+                <div class="title-text">Moderate</div>
+                <div>Today's risk level</div>
+            </div>
+            <div class="stat-box">
+                <div class="title-text">X%</div>
+                <div>of employees practice good cybersecurity habits.</div>
+            </div>
+        </div>
+
+        <!-- Main Page Content-->
+        <div class="page-content">
+
+            <!-- Active Users Panel-->
+            <div id="users" class="panel" style="width: 30%;">
+                <div class="title">Active Users</div>
+                <div class="content">
+                    <div class="user-box">
+                        <img src="img/user.png" alt="user icon" style="height: 32px">
+                        <div style="display: flex; flex-direction: column">
+                            <div>Name</div>
+                            <div>
+                                <img src="img/clock.png" alt="clock icon">
+                                <div>1d 2h 23m</div>
+                            </div>
+                        </div>
+                        <div>192.168.4.1</div>
+                        <div>
+                            <img src="img/red_up_arrow.png" alt="up arrow">
+                            <div>num</div>
+                            <div>num</div>
+                        </div>
+                        <div>
+                            <img src="img/green_down_arrow.png" alt="down arrow">
+                            <div>num</div>
+                            <div>num</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alerts Panel-->
+            <div id="alerts" class="panel" style="width: 30%;">
+                <div class="title">Alerts</div>
+                <div class="content">
+                    <div class="alerts-legend">
+                        <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                            <div id="legend">
+                                <div style="height: 12px; width: 12px; background-color: #CA4545; border: solid 2px; margin: 5px;"></div>
+                                Severe
+                            </div>
+                            <div id="legend">
+                                <div style="height: 12px; width: 12px; background-color: #CAAD45; border: solid 2px; margin: 5px;"></div>
+                                Moderate
+                            </div>
+                            <div id="legend">
+                                <div style="height: 12px; width: 12px; background-color: #58CA45; border: solid 2px; margin: 5px;"></div>
+                                Low
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="alert-box severe">
+                        <div style="text-align: center">
+                            <img src="img/hazard.png" alt="danger icon" style="height: 24px">
+                            <div>2m</div>
+                        </div>
+                        <div>
+                            <div class="heading">Severe Alert Title</div>
+                            <div>Alert information goes here.</div>
+                        </div>
+                    </div>
+
+                    <div class="alert-box">
+                        <div style="text-align: center">
+                            <img src="img/hazard.png" alt="danger icon" style="height: 24px">
+                            <div>2m</div>
+                        </div>
+                        <div>
+                            <div class="heading">Standard Alert Title</div>
+                            <div>Alert information goes here.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stack of Graph Panels-->
+             <div style="width: 30%; display: flex; flex-direction: column">
+                <!--Network Traffic Graph-->
+                <div class="panel" style="width: 100%">
+                    <div class="title">Network Traffic</div>
+                    <div class="content">
+                        <canvas id="traffic"></canvas>
+                    </div>
+                </div>
+                <!--Threats-->
+                <div class="panel" style="width: 100%">
+                    <div class="title">Threats</div>
+                    <div class="content">
+                        <canvas id="threats"></canvas>
+                    </div>
+                </div>
+             </div>
+        </div>
+
+        <script src="js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MultiGuard | Technical Risks</title>
+        <link rel="stylesheet" href="style.css"/>
+        <!--Import K2D Font-->
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+        </style>
+        <!--Import Chart.js Library-->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body class="k2d-regular">
+        <!-- Navigation-->
+         <div style="background: #1A3042">
+            <div class="nav-bar">
+                <div id="logo">MULTIGUARD</div>
+                <div class="menu-buttons">
+                    <div class="menu-element">
+                        <img src="img/bar_graph.png" alt="dashboard icon">
+                        <a href="index.html">Dashboard</a>
+                    </div>
+                    <div class="menu-element highlight">
+                        <img src="img/alert_hex.png" alt="alerts icon">
+                        <a href="technical-risks.html">Technical Risks</a>
+                    </div>
+                    <div class="menu-element">
+                        <img src="img/clipboard.png" alt="social icon">
+                        <a href="social-risks.html">Social Risks</a>
+                    </div>
+                </div>
+            </div>
+         </div>
+
+        <!--Third Party Risk Profile Header-->
+        <div class="technical-risk-header">
+            <div>
+                Technical Risk Profile
+                <img src="img/clock.png" alt="clock icon" style="height: 20px">
+                <span id="live-clock">xx/xx/xxxx xx:xxAM</span>
+            </div>
+        </div>
+        <!--All content below clock header-->
+        <!--Nmap Network Scan Panel-->
+        <div class="panel">
+            <div class="title">Network Scan</div>
+            <div class="content">
+                <form id="nmapForm" method="POST">
+                    <label for="target">Target IP/Range:</label>
+                    <input type="text" id="target" name="target" required>
+                    
+                    <label for="scan_type">Scan Type:</label>
+                    <select id="scan_type" name="scan_type">
+                        <option value="Light">Light</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Aggressive">Aggressive</option>
+                    </select>
+                    
+                    <label for="exclude_zones">Exclude Safe Zones:</label>
+                    <input type="checkbox" id="exclude_zones" name="exclude_zones" value="y">
+                    
+                    <label for="additional_excludes">Additional Excludes:</label>
+                    <input type="text" id="additional_excludes" name="additional_excludes">
+                    
+                    <button type="submit" id="runScanBtn" class="styleBtn" style="width: 120px">
+                        Run Scan
+                    </button>
+                </form>
+            </div>
+        </div>
+        <script src="/js/network.js"></script>
+        
+        <div class="technical-risk-container">
+            <!--Asset Details and Historical Risk Score-->
+            <div class="technical-risks-left-content">
+                <!--Asset Details-->
+                <div class="asset-risk-crit">
+                    <!--Risk Score-->
+                    <div id="riskScore" class="risk-score-panel">
+                        <div class="title">Risk Score</div>
+                        <div class="box-body">17</div>
+                    </div>
+                    
+                    <!--Criticality-->
+                    <div id="Criticality" class="risk-score-panel" style="background-color: #FF6666">
+                        <div class="title" style="background-color: #6E0404;">Criticality</div>
+                        <div class="box-body">HIGH</div>
+                    </div>
+
+                    <!--Scan Results-->
+                    <div class="panel">
+                        <div class="title">Scan Results</div>
+                        <div class="dropdown">
+                            <button class="dropbtn">See XML</button>
+                            <div class="dropdown-content">
+                                <pre id="scan_results"></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Issues-->
+                <div id="issuesPanel" class="panel" style="width: 90%; margin: auto;">
+                    <div class="title">Issues</div>
+                    <div class="panel-row severe">
+                        <img src="img/hazard.png" alt="hazard icon">
+                        Problem 1
+                    </div>
+                    <div class="panel-row severe">
+                        <img src="img/hazard.png" alt="hazard icon">
+                        Problem 2
+                    </div>
+                    <div class="panel-row moderate">
+                        <img src="img/hazard.png" alt="hazard icon">
+                        Problem 3
+                    </div>
+                    <div class="panel-row moderate">
+                        <img src="img/hazard.png" alt="hazard icon">
+                        Problem 4
+                    </div>
+                    <div class="panel-row low">
+                        <img src="img/hazard.png" alt="hazard icon">
+                        Problem 5
+                    </div>
+                    <div class="panel-row low">
+                        <img src="img/hazard.png" alt="hazard icon">
+                        Problem 6
+                    </div>
+                </div>  
+            </div>
+            
+            <!--Issues and Pie Chart-->
+            <div class="technical-risk-graphs-parent">
+                
+                <!--Historical Risk Score-->
+                <div class="panel" style="width: 95%">
+                    <div class="title">Historical Technical Risk Score</div>
+                    <div class="tr-chart">
+                        <canvas width= "500px" id="historicalRisk"></canvas>
+                    </div>
+                </div>
+                
+                <!--Vulnerability Split -->
+                <div class="panel" style="width: 95%">
+                    <div class="title">Vulnerabilities</div>
+                    <div class="tr-chart">
+                        <canvas width="300px" id="vulnerabilityChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/technical-risks.js"></script>
+    </body>
+</html>
