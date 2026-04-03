@@ -23,13 +23,13 @@ The goal is to provide a **holistic view of breach risk**, enabling better-infor
 ## Dashboard Preview
 
 ### Main Dashboard
-![Main Dashboard](images/<your-main-image>.png)
+![Main Dashboard](images/<Dashboard Main Page>.png)
 
 ### Social Risk Analysis
-![Social Risks](images/<your-social-image>.png)
+![Social Risks](images/<Social Risk Page>.png)
 
 ### Technical Risk Analysis
-![Technical Risks](images/<your-technical-image>.png)
+![Technical Risks](images/<Technical Risk Page>.png)
 
 ---
 
